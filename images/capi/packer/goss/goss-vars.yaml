@@ -482,6 +482,27 @@ ubuntu:
         exit-status: 0
         stderr: []
         timeout: 0
+  amazon-arm64:
+    service:
+      snap.amazon-ssm-agent.amazon-ssm-agent.service:
+        enabled: true
+        running: true
+    package:
+      cloud-guest-utils:
+      cloud-initramfs-copymods:
+      cloud-initramfs-dyn-netconf:
+      linux-cloud-tools-6.8.0-1033-aws:
+      linux-tools-6.8.0-1033-aws:
+    command:
+      snap list | grep 'amazon-ssm-agent' | awk -F' ' '{print $1}':
+        exit-status: 0
+        stdout: ["amazon-ssm-agent"]
+        stderr: []
+        timeout: 0
+      /usr/local/sbin/aws --version:
+        exit-status: 0
+        stderr: []
+        timeout: 0
   gcp:
     package:
       linux-cloud-tools-virtual:

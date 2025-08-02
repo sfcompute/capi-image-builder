@@ -26,6 +26,7 @@
   "ubuntu_security_repo": "http://ports.ubuntu.com/ubuntu-ports",
   "containerd_arch": "arm64",
   "containerd_version": "2.1.4",
+  "containerd_pkg_name": "containerd",
   "goss_arch": "arm64",
   "goss_provider": "amazon-arm64",
   "ami_regions": "ap-southeast-1,eu-west-1,us-east-1,us-west-1",

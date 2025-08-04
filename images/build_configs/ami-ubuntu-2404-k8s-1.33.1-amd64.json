@@ -26,8 +26,8 @@
   "ubuntu_repo": "http://us.archive.ubuntu.com/ubuntu",
   "ubuntu_security_repo": "http://security.ubuntu.com/ubuntu",
   "containerd_arch": "amd64",
-  "containerd_version": "2.1.4",
-  "containerd_pkg_name": "containerd",
+  "containerd_version": "1.7.28",
+  "containerd_pkg_name": "cri-containerd-cni",
   "goss_arch": "amd64",
   "goss_provider": "amazon-amd64",
   "ami_regions": "ap-southeast-1,eu-west-1,us-east-1,us-west-1",
@@ -35,6 +35,6 @@
   "snapshot_groups": "",
   "ecr_credential_provider": "true",
   "ecr_credential_provider_arch": "amd64",
-  "ecr_credential_provider_version": "v1.31.1",
+  "ecr_credential_provider_version": "v1.31.0",
   "ecr_credential_provider_os": "linux"
 }

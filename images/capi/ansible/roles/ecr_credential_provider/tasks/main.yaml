@@ -4,6 +4,14 @@
     path: "{{ ecr_credential_provider_install_dir }}/{{ ecr_credential_provider_binary_filename }}"
   register: ecr_credential_provider_binary
 
+- name: Debug ecr_credential_provider version and architecture
+  ansible.builtin.debug:
+    msg: "ecr_credential_provider_version: {{ ecr_credential_provider_version }}, ecr_credential_provider_arch: {{ ecr_credential_provider_arch }}, ecr_credential_provider_install_dir: {{ ecr_credential_provider_install_dir }}, ecr_credential_provider_binary_filename: {{ ecr_credential_provider_binary_filename }}"
+
+- name: debug ecr_credential_provider exists
+  ansible.builtin.debug:
+    msg: "ecr_credential_provider_binary.stat.exists: {{ ecr_credential_provider_binary.stat.exists }}"
+
 - name: Install ECR Credential Provider binary
   when: not ecr_credential_provider_binary.stat.exists
   block:
@@ -13,11 +21,24 @@
         state: directory
         mode: "0755"
 
+    - name: ecr_credential_provider_download_url
+      ansible.builtin.debug:
+        msg: "ecr_credential_provider_download_url: {{ ecr_credential_provider_base_url }}/{{ ecr_credential_provider_version }}/{{ ecr_credential_provider_os }}/{{ ecr_credential_provider_arch }}/ecr-credential-provider-{{ ecr_credential_provider_os }}-{{ ecr_credential_provider_arch }}"
+
     - name: Download ecr_credential_provider binary
       ansible.builtin.get_url:
         url: "{{ ecr_credential_provider_base_url }}/{{ ecr_credential_provider_version }}/{{ ecr_credential_provider_os }}/{{ ecr_credential_provider_arch }}/ecr-credential-provider-{{ ecr_credential_provider_os }}-{{ ecr_credential_provider_arch }}"
         dest: "{{ ecr_credential_provider_install_dir }}/{{ ecr_credential_provider_binary_filename }}"
         mode: "0755"
+
+    - name: Check if ecr_credential_provider binary exists
+      ansible.builtin.stat:
+        path: "{{ ecr_credential_provider_install_dir }}/{{ ecr_credential_provider_binary_filename }}"
+      register: ecr_credential_provider_binary_exists
+
+    - name: Debug ecr_credential_provider binary exists
+      ansible.builtin.debug:
+        msg: "ecr_credential_provider_binary_exists: {{ ecr_credential_provider_binary_exists.stat.exists }}"
 
 - name: Create the CredentialProviderConfig for the ECR Credential Provider
   block:

@@ -1,3 +1,4 @@
+
 ---
 common_rpms: &common_rpms
   audit:
@@ -465,6 +466,24 @@ ubuntu:
         enabled: true
         running: true
   amazon:
+    service:
+      snap.amazon-ssm-agent.amazon-ssm-agent.service:
+        enabled: true
+        running: true
+    package:
+      linux-cloud-tools-virtual:
+      linux-tools-virtual:
+    command:
+      snap list | grep 'amazon-ssm-agent' | awk -F' ' '{print $1}':
+        exit-status: 0
+        stdout: ["amazon-ssm-agent"]
+        stderr: []
+        timeout: 0
+      /usr/local/sbin/aws --version:
+        exit-status: 0
+        stderr: []
+        timeout: 0
+  amazon-amd64:
     service:
       snap.amazon-ssm-agent.amazon-ssm-agent.service:
         enabled: true

@@ -12,7 +12,7 @@
         "{{user `cd_files`}}"
       ],
       "cd_label": "cidata",
-      "cpu_model": "host",
+      "cpu_model": "{{user `cpu_model`}}",
       "cpus": "{{user `cpus`}}",
       "disk_compression": "{{ user `disk_compression`}}",
       "disk_discard": "{{user `disk_discard`}}",
@@ -168,6 +168,7 @@
     "containerd_url": "https://github.com/containerd/containerd/releases/download/v{{user `containerd_version`}}/cri-containerd-cni-{{user `containerd_version`}}-linux-amd64.tar.gz",
     "containerd_version": null,
     "cpus": "1",
+    "cpu_model": "host",
     "crictl_url": "https://github.com/kubernetes-sigs/cri-tools/releases/download/v{{user `crictl_version`}}/crictl-v{{user `crictl_version`}}-linux-amd64.tar.gz",
     "crictl_version": null,
     "disk_compression": "false",

@@ -19,7 +19,8 @@
       "disk_image": "{{ user `disk_image` }}",
       "disk_interface": "virtio-scsi",
       "disk_size": "{{user `disk_size`}}",
-      "firmware": "{{user `firmware`}}",
+      "display": "{{user `display`}}",
+      "use_default_display": "{{user `use_default_display`}}",
       "efi_boot": "{{user `efi_boot`}}",
       "efi_firmware_code": "{{user `efi_firmware_code`}}",
       "efi_firmware_vars": "{{user `efi_firmware_vars`}}",
@@ -28,6 +29,7 @@
       "http_directory": "{{user `http_directory`}}",
       "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
+      "machine_type": "{{user `machine_type`}}",
       "memory": "{{user `memory`}}",
       "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
@@ -179,7 +181,6 @@
     "disk_image": "false",
     "disk_size": "20480",
     "existing_ansible_ssh_args": "{{env `ANSIBLE_SSH_ARGS`}}",
-    "firmware": "",
     "efi_boot": "false",
     "efi_firmware_code": "",
     "efi_firmware_vars": "",
@@ -205,6 +206,7 @@
     "kubernetes_source_type": null,
     "machine_id_mode": "444",
     "memory": "2048",
+    "machine_type": "",
     "oem_id": "",
     "output_directory": "./output/{{user `build_name`}}-kube-{{user `kubernetes_semver`}}",
     "python_path": "",
@@ -212,6 +214,8 @@
     "ssh_password": "$SSH_PASSWORD",
     "ssh_username": "builder",
     "vm_name": "{{user `build_name`}}-kube-{{user `kubernetes_semver`}}",
-    "vnc_bind_address": "127.0.0.1"
+    "vnc_bind_address": "127.0.0.1",
+    "display": "",
+    "use_default_display": "false"
   }
 }

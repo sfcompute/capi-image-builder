@@ -19,5 +19,5 @@
   "machine_type": "q35",
   "cpus": "2",
   "memory": "2048",
-  "disk_size": "5120"
+  "disk_size": "6144"
 }

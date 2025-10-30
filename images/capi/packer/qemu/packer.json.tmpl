@@ -40,7 +40,9 @@
       "ssh_username": "{{user `ssh_username`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}",
-      "vnc_bind_address": "{{user `vnc_bind_address`}}"
+      "vnc_bind_address": "{{user `vnc_bind_address`}}",
+      "vtpm": true,
+      "efi_drop_efivars": true
     }
   ],
   "post-processors": [
@@ -109,7 +111,7 @@
       "type": "shell"
     },
     {
-      "pause_before": "30s",
+      "pause_before": "5m",
       "ansible_env_vars": [
         "ANSIBLE_SSH_ARGS='{{user `existing_ansible_ssh_args`}} {{user `ansible_common_ssh_args`}}'",
         "KUBEVIRT={{user `kubevirt`}}"

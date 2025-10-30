@@ -1,0 +1,23 @@
+{
+  "build_name": "ubuntu-2404-cloudimg-minimal-sfvm",
+  "cd_files": "./packer/qemu/cloud-init/*",
+  "disk_image": "true",
+  "distribution_version": "2404",
+  "distro_name": "ubuntu",
+  "guest_os_type": "ubuntu-64",
+  "iso_checksum": "https://cloud-images.ubuntu.com/minimal/releases/noble/release/SHA256SUMS",
+  "iso_checksum_type": "file",
+  "iso_url": "https://cloud-images.ubuntu.com/minimal/releases/noble/release/ubuntu-24.04-minimal-cloudimg-amd64.img",
+  "os_display_name": "Ubuntu 24.04",
+  "shutdown_command": "shutdown -P now",
+  "accelerator": "tcg",
+  "cpu_model": "qemu64",
+  "format": "raw",
+  "efi_boot": "true",
+  "efi_firmware_code": "/opt/homebrew/Cellar/qemu/10.1.2/share/qemu/edk2-x86_64-code.fd",
+  "efi_firmware_vars": "/opt/homebrew/Cellar/qemu/10.1.2/share/qemu/edk2-i386-vars.fd",
+  "machine_type": "q35",
+  "cpus": "2",
+  "memory": "2048",
+  "disk_size": "10240"
+}
